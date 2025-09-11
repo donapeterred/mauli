@@ -415,6 +415,142 @@ document.addEventListener('DOMContentLoaded', function() {
 // Initialize particles - REMOVED
 // createParticles();
 
+// Premium Gallery Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const gallery = document.querySelector('.premium-gallery');
+    if (!gallery) return;
+
+    const galleryItems = gallery.querySelectorAll('.gallery-item');
+    
+    // Add interactive effects to gallery items
+    galleryItems.forEach((item, index) => {
+        const image = item.querySelector('.gallery-img');
+        
+        // Add click handler for image switching
+        item.addEventListener('click', function() {
+            // Remove featured class from all items
+            galleryItems.forEach(gItem => gItem.classList.remove('featured'));
+            
+            // Add featured class to clicked item
+            this.classList.add('featured');
+            
+            // Add visual feedback
+            this.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 300);
+        });
+
+        // Add keyboard support
+        item.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+
+        // Add accessibility attributes
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-label', `View ${image.alt}`);
+    });
+
+    // Add staggered animation on load
+    galleryItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+            item.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, index * 150);
+    });
+});
+
+// Gallery Action Functions
+function scrollToCollections() {
+    const collectionsSection = document.querySelector('#collections');
+    if (collectionsSection) {
+        const headerHeight = document.querySelector('.navbar').offsetHeight;
+        const targetPosition = collectionsSection.offsetTop - headerHeight;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+function openLightbox() {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-modal';
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-gallery">
+                <img src="hero1.jpg" alt="Premium Golden Saree" class="lightbox-img active">
+                <img src="hero2.jpg" alt="Elegant Maroon Saree" class="lightbox-img">
+                <img src="hero3.jpg" alt="Classic Cream Saree" class="lightbox-img">
+            </div>
+            <div class="lightbox-controls">
+                <button class="lightbox-nav prev" onclick="changeLightboxImage(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="lightbox-nav next" onclick="changeLightboxImage(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="lightbox-dots">
+                <span class="lightbox-dot active" onclick="setLightboxImage(0)"></span>
+                <span class="lightbox-dot" onclick="setLightboxImage(1)"></span>
+                <span class="lightbox-dot" onclick="setLightboxImage(2)"></span>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(lightbox);
+    setTimeout(() => lightbox.classList.add('show'), 10);
+    
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
+    });
+}
+
+function closeLightbox() {
+    const lightbox = document.querySelector('.lightbox-modal');
+    if (lightbox) {
+        lightbox.classList.remove('show');
+        setTimeout(() => document.body.removeChild(lightbox), 300);
+    }
+}
+
+let currentLightboxImage = 0;
+
+function changeLightboxImage(direction) {
+    const images = document.querySelectorAll('.lightbox-img');
+    const dots = document.querySelectorAll('.lightbox-dot');
+    
+    currentLightboxImage += direction;
+    if (currentLightboxImage >= images.length) currentLightboxImage = 0;
+    if (currentLightboxImage < 0) currentLightboxImage = images.length - 1;
+    
+    images.forEach((img, index) => {
+        img.classList.toggle('active', index === currentLightboxImage);
+    });
+    
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentLightboxImage);
+    });
+}
+
+function setLightboxImage(index) {
+    currentLightboxImage = index;
+    changeLightboxImage(0);
+}
+
 // Console welcome message
 console.log('%c🌱 Welcome to MAULI - Premium Eco-Luxury Sarees', 'color: #8B0000; font-size: 16px; font-weight: bold;');
 console.log('%cCrafted with love and sustainability 💚', 'color: #FFD700; font-size: 14px;');
