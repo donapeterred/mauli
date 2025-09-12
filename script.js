@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const elements = document.querySelectorAll(selector);
                 elements.forEach(element => {
                     // Force maroon color with maximum priority
-                    element.style.setProperty('color', '#8B0000', 'important');
-                    element.style.setProperty('-webkit-text-fill-color', '#8B0000', 'important');
+                    element.style.setProperty('color', '#2D5016', 'important');
+                    element.style.setProperty('-webkit-text-fill-color', '#2D5016', 'important');
                     element.style.setProperty('background', 'transparent', 'important');
                     element.style.setProperty('background-image', 'none', 'important');
                     element.style.setProperty('background-color', 'transparent', 'important');
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Reset button after redirect
                 this.textContent = 'Add to Cart';
-                this.style.background = '#8B0000';
+                this.style.background = '#2D5016';
             }, 1000);
         });
     });
@@ -552,5 +552,5 @@ function setLightboxImage(index) {
 }
 
 // Console welcome message
-console.log('%c🌱 Welcome to MAULI - Premium Eco-Luxury Sarees', 'color: #8B0000; font-size: 16px; font-weight: bold;');
+console.log('%c🌱 Welcome to MAULI - Premium Eco-Luxury Sarees', 'color: #2C2C2C; font-size: 16px; font-weight: bold;');
 console.log('%cCrafted with love and sustainability 💚', 'color: #FFD700; font-size: 14px;');
