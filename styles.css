@@ -21,7 +21,25 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-md);
+}
+.blog-article {
+    max-width: 900px;
+    margin: 120px auto 60px;
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-2xl);
+}
+
+/* Standard section paddings */
+section.collections,
+section.about,
+section.crafting-process,
+section.video-section,
+section.sustainability,
+section.craftsmanship,
+section.contact {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 /* Enhanced Typography with Fluid Scaling */
@@ -1369,6 +1387,23 @@ p {
     .container {
         padding: 0 var(--spacing-sm);
     }
+    .blog-article {
+        margin: 100px auto 40px;
+        padding-top: var(--spacing-2xl);
+        padding-bottom: var(--spacing-xl);
+    }
+
+    /* Ensure consistent inner spacing for sections on mobile */
+    section.collections,
+    section.about,
+    section.crafting-process,
+    section.video-section,
+    section.sustainability,
+    section.craftsmanship,
+    section.contact {
+        padding-left: 0;
+        padding-right: 0;
+    }
     
     .logo {
         height: 50px;
@@ -1672,6 +1707,24 @@ p {
         transform: none;
     }
 
+    /* Sustainability mobile tweaks */
+    #sustainability .section-title {
+        font-size: var(--font-size-2xl);
+        letter-spacing: 1px;
+    }
+    #sustainability .section-description {
+        font-size: var(--font-size-base);
+        line-height: 1.6;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #sustainability ul {
+        max-width: 720px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-inline-start: 1.25rem !important;
+    }
 }
 
 /* Extra Small Mobile (320px - 375px) */
