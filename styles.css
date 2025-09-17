@@ -332,14 +332,14 @@ p {
     width: 200px;
     height: 250px;
     order: 1;
-    transform: rotate(-2deg);
+    transform: none;
 }
 
 .secondary-saree {
-    width: 180px;
-    height: 220px;
+    width: 200px;
+    height: 250px;
     order: 2;
-    transform: rotate(2deg);
+    transform: none;
 }
 
 .hero-bottom {
@@ -1127,8 +1127,8 @@ p {
     }
     
     .secondary-saree {
-        width: 200px;
-        height: 250px;
+        width: 220px;
+        height: 280px;
     }
 }
 
@@ -1168,8 +1168,8 @@ p {
     }
 
     .secondary-saree {
-        width: 180px;
-        height: 220px;
+        width: 200px;
+        height: 250px;
     }
 }
 
@@ -1212,8 +1212,8 @@ p {
     }
 
     .secondary-saree {
-        width: 160px;
-        height: 200px;
+        width: 180px;
+        height: 220px;
     }
     
     .products-grid {
@@ -1270,8 +1270,8 @@ p {
     }
 
     .secondary-saree {
-        width: 140px;
-        height: 180px;
+        width: 160px;
+        height: 200px;
     }
     
     .products-grid {
@@ -1310,8 +1310,8 @@ p {
     }
     
     .secondary-saree {
-        width: 100px;
-        height: 130px;
+        width: 120px;
+        height: 150px;
     }
 }
 
@@ -1643,8 +1643,8 @@ p {
     }
 
     .secondary-saree {
-        width: 120px;
-        height: 150px;
+        width: 140px;
+        height: 180px;
         order: 2;
         transform: none;
     }
