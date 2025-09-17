@@ -1457,6 +1457,29 @@ p {
         margin: var(--spacing-md) 0;
     }
 
+    /* Blog/History section mobile readability */
+    #blog .container {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+    #blog .section-header .section-title {
+        font-size: var(--font-size-2xl);
+        letter-spacing: 1px;
+    }
+    #blog .section-header .section-description {
+        font-size: var(--font-size-base);
+        line-height: 1.6;
+    }
+    #blog .legacy-title {
+        font-size: var(--font-size-xl);
+        letter-spacing: 1px;
+    }
+    #blog .legacy-text p {
+        font-size: var(--font-size-base);
+        line-height: 1.7;
+        margin-bottom: var(--spacing-sm);
+    }
+
     .brand-large {
         font-size: var(--font-size-4xl);
         line-height: 1.1;
